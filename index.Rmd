@@ -9,7 +9,7 @@ output:
 
 
 
-## Project thoughts
+## Project Proposal
 
 How are the redlining maps created by the Home Owners Loan Corporation (HOLC) in 1937 related to contemporary disparities in home values, taking into account socioeconomic factors? I hypothesize that areas classified as "redlined" by HOLC in 1937 (often associated with communities of color and lower socioeconomic status) will exhibit a negative relationship with present-day property values. This hypothesis is grounded in the theory that discriminatory lending practices and disinvestment in historically marginalized neighborhoods have long-lasting effects, leading to reduced property values and limited economic opportunities for these areas. The explanatory variable of interest is the HOLC redlining status of neighborhoods in 1937. This variable is binary, with "redlined" and "not redlined" as the two categories, allowing for the observation of variation in historical lending discrimination. The outcome variable is current property values within these neighborhoods. Property values can be measured through the assessed property values or market prices of residential homes, representing the economic well-being and desirability of a neighborhood. A pattern that would support the hypothesis is a statistically significant negative correlation between the HOLC redlining status and contemporary property values, indicating that areas labeled as "redlined" have lower property values on average. This would suggest that historical redlining practices had a lasting impact on property values in these areas.
 
