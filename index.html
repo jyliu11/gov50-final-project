@@ -115,7 +115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.24/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["data.csv","index_files/anchor-4.2.2/anchor.min 2.js","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min 2.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2 2.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-1-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.24/header-attrs 2.js","index_files/header-attrs-2.24/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0 2.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min 2.js","index_files/jquery-3.6.0/jquery-3.6.0.min 2.map","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min 2.js","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy 2.css","index_files/tippy-6.2.7/tippy-bundle.umd.min 2.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border 2.css","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min 2.js","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents 2.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1519,7 +1519,57 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="d-article">
 <h2 id="project-proposal">Project Proposal</h2>
 <p>How are the redlining maps created by the Home Owners Loan Corporation (HOLC) in 1937 related to contemporary disparities in home values, taking into account socioeconomic factors? I hypothesize that areas classified as “redlined” by HOLC in 1937 (often associated with communities of color and lower socioeconomic status) will exhibit a negative relationship with present-day property values. This hypothesis is grounded in the theory that discriminatory lending practices and disinvestment in historically marginalized neighborhoods have long-lasting effects, leading to reduced property values and limited economic opportunities for these areas. The explanatory variable of interest is the HOLC redlining status of neighborhoods in 1937. This variable is binary, with “redlined” and “not redlined” as the two categories, allowing for the observation of variation in historical lending discrimination. The outcome variable is current property values within these neighborhoods. Property values can be measured through the assessed property values or market prices of residential homes, representing the economic well-being and desirability of a neighborhood. A pattern that would support the hypothesis is a statistically significant negative correlation between the HOLC redlining status and contemporary property values, indicating that areas labeled as “redlined” have lower property values on average. This would suggest that historical redlining practices had a lasting impact on property values in these areas.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>redlining</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"data.csv"</span><span class='op'>)</span></span>
+<span><span class='va'>redlining</span></span></code></pre>
+</div>
+<pre><code># A tibble: 551 × 29
+   rowid metro_area  holc_grade white_pop black_pop hisp_pop asian_pop
+   &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+ 1     1 Akron, OH   A              24702      8624      956       688
+ 2     2 Akron, OH   B              41531     16499     2208      3367
+ 3     3 Akron, OH   C              73105     22847     3149      6291
+ 4     4 Akron, OH   D               6179      6921      567       455
+ 5     5 Albany-Sch… A              16989      1818     1317      1998
+ 6     6 Albany-Sch… B              26644      7094     4334      2509
+ 7     7 Albany-Sch… C              56878     16795    10357      6355
+ 8     8 Albany-Sch… D              16806     19581     6688      2191
+ 9     9 Allentown-… A               1076        71      367        21
+10    10 Allentown-… B              16774      1962     7935       731
+# ℹ 541 more rows
+# ℹ 22 more variables: other_pop &lt;dbl&gt;, total_pop &lt;dbl&gt;,
+#   pct_white &lt;dbl&gt;, pct_black &lt;dbl&gt;, pct_hisp &lt;dbl&gt;,
+#   pct_asian &lt;dbl&gt;, pct_other &lt;dbl&gt;, lq_white &lt;dbl&gt;, lq_black &lt;dbl&gt;,
+#   lq_hisp &lt;dbl&gt;, lq_asian &lt;dbl&gt;, lq_other &lt;dbl&gt;,
+#   surr_area_white_pop &lt;dbl&gt;, surr_area_black_pop &lt;dbl&gt;,
+#   surr_area_hisp_pop &lt;dbl&gt;, surr_area_asian_pop &lt;dbl&gt;, …</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>best_zones</span> <span class='op'>&lt;-</span> <span class='va'>redlining</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>holc_grade</span> <span class='op'>==</span> <span class='st'>'A'</span><span class='op'>)</span></span>
+<span><span class='va'>hazardous_zones</span> <span class='op'>&lt;-</span> <span class='va'>redlining</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>holc_grade</span> <span class='op'>==</span> <span class='st'>'D'</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>categories</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'White'</span>, <span class='st'>'Black'</span>, <span class='st'>'Hispanic/Latino'</span>, <span class='st'>'Asian'</span>, <span class='st'>'Other'</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>best_pct</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>colMeans</a></span><span class='op'>(</span><span class='va'>best_zones</span><span class='op'>[</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'pct_white'</span>, <span class='st'>'pct_black'</span>, <span class='st'>'pct_hisp'</span>, <span class='st'>'pct_asian'</span>, <span class='st'>'pct_other'</span><span class='op'>)</span><span class='op'>]</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span><span class='va'>hazardous_pct</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>colMeans</a></span><span class='op'>(</span><span class='va'>hazardous_zones</span><span class='op'>[</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'pct_white'</span>, <span class='st'>'pct_black'</span>, <span class='st'>'pct_hisp'</span>, <span class='st'>'pct_asian'</span>, <span class='st'>'pct_other'</span><span class='op'>)</span><span class='op'>]</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>Category <span class='op'>=</span> <span class='va'>categories</span>, <span class='st'>'Best Zones'</span> <span class='op'>=</span> <span class='va'>best_pct</span>, <span class='st'>'Hazardous Zones'</span> <span class='op'>=</span> <span class='va'>hazardous_pct</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>df</span> <span class='op'>&lt;-</span> <span class='va'>df</span> <span class='op'>|&gt;</span> <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_longer.html'>pivot_longer</a></span><span class='op'>(</span>cols <span class='op'>=</span> <span class='op'>-</span><span class='va'>Category</span>, names_to <span class='op'>=</span> <span class='st'>'Zone Type'</span>, values_to <span class='op'>=</span> <span class='st'>'Percentage'</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>df</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>Category</span>, y <span class='op'>=</span> <span class='va'>Percentage</span>, fill <span class='op'>=</span> <span class='fu'><a href='https://forcats.tidyverse.org/reference/fct_rev.html'>fct_rev</a></span><span class='op'>(</span><span class='va'>`Zone Type`</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>'identity'</span>, position <span class='op'>=</span> <span class='st'>'fill'</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>'Population Distribution by Race/Ethnicity in "Best" and "Hazardous" Zones'</span>,</span>
+<span>       x <span class='op'>=</span> <span class='st'>'Race/Ethnicity Categories'</span>, y <span class='op'>=</span> <span class='st'>'Proportion'</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_legend.html'>guide_legend</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>'Zone Type'</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-1-1.png" width="624" /></p>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
