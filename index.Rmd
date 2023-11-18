@@ -11,8 +11,7 @@ output:
 
 ## Project Proposal
 
-How are the redlining maps created by the Home Owners Loan Corporation (HOLC) in 1937 related to contemporary disparities in home values, taking into account socioeconomic factors? I hypothesize that areas classified as "redlined" by HOLC in 1937 (often associated with communities of color and lower socioeconomic status) will exhibit a negative relationship with present-day property values. This hypothesis is grounded in the theory that discriminatory lending practices and disinvestment in historically marginalized neighborhoods have long-lasting effects, leading to reduced property values and limited economic opportunities for these areas. The explanatory variable of interest is the HOLC redlining status of neighborhoods in 1937. This variable is binary, with "redlined" and "not redlined" as the two categories, allowing for the observation of variation in historical lending discrimination. The outcome variable is current property values within these neighborhoods. Property values can be measured through the assessed property values or market prices of residential homes, representing the economic well-being and desirability of a neighborhood. A pattern that would support the hypothesis is a statistically significant negative correlation between the HOLC redlining status and contemporary property values, indicating that areas labeled as "redlined" have lower property values on average. This would suggest that historical redlining practices had a lasting impact on property values in these areas.
-
+How do historical redlining maps developed by the Home Owners Loan Corporation (HOLC) between 1935-1940 relate to contemporary racial and ethnic population distribution within metropolitan areas? I posit that neighborhoods classified as "redlined" by HOLC in the past, often associated with communities of color, will display enduring patterns of racial segregation and disparities in population composition. This hypothesis is founded on the premise that discriminatory lending practices and disinvestment in historically marginalized neighborhoods have enduring consequences, shaping the demographic landscape of these areas. The key variable of interest is the HOLC redlining status of neighborhoods in the historical period between 1935-1940. The outcome variable is the current racial and ethnic composition within these neighborhoods, with a particular focus on location quotients (LQs) as small-area measures of segregation.
 
 ```{r}
 library(tidyverse)
@@ -40,6 +39,28 @@ ggplot(df, aes(x = Category, y = Percentage, fill = fct_rev(`Zone Type`))) +
        x = 'Race/Ethnicity Categories', y = 'Proportion') +
   guides(fill = guide_legend(title = 'Zone Type'))
 ```
+
+```{r}
+lq_data <- redlining |>
+  select(metro_area, holc_grade, lq_white, lq_black, lq_hisp, lq_asian, lq_other) |>
+  pivot_longer(cols = starts_with("lq"), names_to = 'Ethnicity', values_to = 'LQ')
+
+ggplot(lq_data, aes(x = holc_grade, y = LQ, fill = Ethnicity)) +
+  geom_boxplot() +
+  labs(title = 'Location Quotient (LQ) Across HOLC Grades by Ethnicity',
+       x = 'HOLC Grade',
+       y = 'Location Quotient (LQ)',
+       fill = 'Ethnicity')
+```
+The Location Quotient (LQ) is a statistical measure used to analyze the concentration or distribution of a particular variable (such as ethnicity) within a specific geographic area relative to a larger reference area. It is often employed in regional economics and geography to identify the relative importance or presence of a particular sector or demographic group within a given region. In this data, an LQ greater than one indicates that a particular group is overrepresented in the specific area compared to the reference area. Naturally, an LQ less than one indicates that a particular group is underrepresented in the specific area compared to the reference area. Thus, "lq_white" being greater than one would indicate overrepresentation of the non-Hispanic white population in the HOLC zone compared to the surrounding area, "lq_black" being greater than one would indicate overrepresentation of the non-Hispanic Black population in the HOLC zone compared to the surrounding area, "lq_hisp" being greater than one would indicate overrepresentation of the Hispanic/Latino population, and so on. 
+
+From our graph, we can see that the demographic with the highest median and overall LQ in areas with a HOLC Grade of A is the non-Hispanic white population. On the flip side, the demographic with the lowest median LQ and quartiles in areas with a HOLC Grade of A is the non-Hispanic Black population. This means that in areas with a HOLC Grade of A, the non-Hispanic white population is overrepresented compared to the surrounding area and the non-Hispanic Black population is largely underrepresented. 
+
+On the opposite end, we can also see that in areas with a HOLC Grade of D, the non-Hispanic Black population is the most overrepresented by a larger margin. The non-Hispanic Asian and non-Hispanic white populations are the most underrepresented in these areas. 
+
+The observed patterns align with the historical context of redlining, where Grade A areas were often associated with more affluent and predominantly white neighborhoods, while communities of color, particularly Black communities, were systematically excluded and faced disinvestment. The enduring impact of historical redlining is reflected in the contemporary spatial distribution of racial and ethnic populations within metropolitan areas. These findings support the research question by providing evidence of a relationship between HOLC redlining maps from the 1930s and present-day racial and ethnic population distribution. The disparities in LQs highlight the enduring consequences of historical redlining practices, contributing to the understanding of how discriminatory policies have shaped the demographic landscape in metropolitan areas over time.
+
+
 
 
 
