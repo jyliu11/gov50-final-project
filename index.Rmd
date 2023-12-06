@@ -1,7 +1,7 @@
 ---
 title: "Gov 50 Final Project"
 author: "Jeslyn Liu"
-description: "My final project"
+description: "Unveiling Urban Segregation: The Enduring Impact of Historical Redlining on Contemporary Racial and Ethnic Population Distribution"
 output:
   distill::distill_article:
     self_contained: false
@@ -25,7 +25,7 @@ The dependent variable of demographic composition is census data, which is measu
 
 Furthermore, the research design employed in this study is cross-sectional. A cross-sectional design involves collecting and analyzing data at a single point in time, providing a snapshot of the population or phenomenon under investigation. In this case, the data is drawn from the 2020 U.S. Decennial Census, capturing a comprehensive view of the racial and ethnic composition within metropolitan areas during that specific year. The primary objective is to explore the relationship between HOLC redlining grades from the historical period of 1935-1940 and the contemporary demographic distribution, using a single, extensive dataset.
 
-The following plot provides a visual representation of the demographic composition within "Best Zones" (HOLC Grade A) and "Hazardous Zones" (HOLC Grade D). Each bar represents the percentage of a specific racial or ethnic group, allowing for a quick comparison of population distribution between historically privileged and disadvantaged zones. This visualization serves as a preliminary exploration of the main outcome of interest, offering an initial insight into how HOLC redlining practices may have influenced the contemporary demographic makeup of these areas. Further statistical analyses will delve into the nuances of these patterns and their implications for enduring racial and ethnic disparities within metropolitan regions.
+The following plot provides a visual representation of the demographic composition within "Best Zones" (HOLC Grade A) and "Hazardous Zones" (HOLC Grade D). Each bar represents the percentage of a specific racial or ethnic group, allowing for a quick comparison of population distribution between historically privileged and disadvantaged zones. It is apparent from the graph that Black populations disproportionately live in "Hazardous Zones", being the population with the greatest proportion in areas with HOLC Grade D, whereas white populations live disproportionately in "Best Zones", being the demographic with the largest proportion in areas with HOLC Grade A. This visualization serves as a preliminary exploration of the main outcome of interest, offering an initial insight into how HOLC redlining practices may have influenced the contemporary demographic makeup of these areas. Further statistical analyses will delve into the nuances of these patterns and their implications for enduring racial and ethnic disparities within metropolitan regions.
 
 ```{r, summarizing dependent variable barplot}
 library(tidyverse)
