@@ -44,10 +44,12 @@ hazardous_zones <- redlining |>
 categories <- c('White', 'Black', 'Hispanic/Latino', 'Asian', 'Other')
 
 best_pct <- colMeans(best_zones
-                     [c('pct_white', 'pct_black', 'pct_hisp', 'pct_asian', 'pct_other')], 
+                     [c('pct_white', 'pct_black', 'pct_hisp', 
+                        'pct_asian', 'pct_other')], 
                      na.rm = TRUE)
 hazardous_pct <- colMeans(hazardous_zones
-                          [c('pct_white', 'pct_black', 'pct_hisp', 'pct_asian', 'pct_other')], 
+                          [c('pct_white', 'pct_black', 'pct_hisp', 
+                             'pct_asian', 'pct_other')], 
                           na.rm = TRUE)
 
 df <- data.frame(Category = categories, 'Best Zones' = best_pct, 
@@ -58,7 +60,9 @@ df <- df |> pivot_longer(cols = -Category, names_to = 'Zone Type',
 
 ggplot(df, aes(x = Category, y = Percentage, fill = fct_rev(`Zone Type`))) +
   geom_bar(stat = 'identity', position = 'fill') +
-  labs(title = 'Population Distribution by Race/Ethnicity in "Best" and "Hazardous" Zones',
+  labs(
+    title = 
+      'Population Distribution by Race/Ethnicity in "Best" and "Hazardous" Zones',
        x = 'Race/Ethnicity Categories', y = 'Proportion') +
   guides(fill = guide_legend(title = 'Zone Type'))
 ```
@@ -68,8 +72,10 @@ This plot sets the stage for a more in-depth examination of the relationships be
 
 ```{r, main analysis}
 lq_data <- redlining |>
-  select(metro_area, holc_grade, lq_white, lq_black, lq_hisp, lq_asian, lq_other) |>
-  pivot_longer(cols = starts_with("lq"), names_to = 'Ethnicity', values_to = 'LQ')
+  select(metro_area, holc_grade, lq_white, lq_black, lq_hisp, 
+         lq_asian, lq_other) |>
+  pivot_longer(cols = starts_with("lq"), names_to = 'Ethnicity', 
+               values_to = 'LQ')
 
 ggplot(lq_data, aes(x = holc_grade, y = LQ, fill = Ethnicity)) +
   geom_boxplot() +
@@ -90,14 +96,12 @@ This graph reveals disparities in the representation of different demographic gr
 library(broom)
 library(knitr)
 
-# Tidy up the regression output
-lq_data <- lq_data %>%
+lq_data <- lq_data |>
   mutate(sum_lq = rowSums(select(lq_data, starts_with("lq"))))
 
 model <- lm(sum_lq ~ holc_grade, data = lq_data)
 summary_table <- tidy(model)
 
-# Format the output using kable
 kable(summary_table, 
       col.names = c("Variable", "Coefficient", "Std. Error", "t-value", "p-value"),
       digits = 3)
