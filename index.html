@@ -1562,8 +1562,8 @@ Caption: HOLC Redlining Map of Greater Boston Area compared to contemporary publ
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>'identity'</span>, position <span class='op'>=</span> <span class='st'>'fill'</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
 <span>    title <span class='op'>=</span> </span>
-<span>      <span class='st'>'Population Distribution by Race/Ethnicity in "Best" and "Hazardous" Zones'</span>,</span>
-<span>       x <span class='op'>=</span> <span class='st'>'Race/Ethnicity Categories'</span>, y <span class='op'>=</span> <span class='st'>'Proportion'</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>      <span class='st'>'Population Distribution by Race in "Best" and "Hazardous" Zones'</span>,</span>
+<span>       x <span class='op'>=</span> <span class='st'>'Race Categories'</span>, y <span class='op'>=</span> <span class='st'>'Proportion'</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_legend.html'>guide_legend</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>'Zone Type'</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
 </div>
 <p><img src="index_files/figure-html5/summarizing%20dependent%20variable%20barplot-1.png" width="624" /></p>
@@ -1603,7 +1603,8 @@ Caption: HOLC Redlining Map of Greater Boston Area compared to contemporary publ
 <span><span class='va'>summary_table</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='va'>model</span><span class='op'>)</span></span>
 <span></span>
 <span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='va'>summary_table</span>, </span>
-<span>      col.names <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Variable"</span>, <span class='st'>"Coefficient"</span>, <span class='st'>"Std. Error"</span>, <span class='st'>"t-value"</span>, <span class='st'>"p-value"</span><span class='op'>)</span>,</span>
+<span>      col.names <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Variable"</span>, <span class='st'>"Coefficient"</span>, <span class='st'>"Std. Error"</span>, </span>
+<span>                    <span class='st'>"t-value"</span>, <span class='st'>"p-value"</span><span class='op'>)</span>,</span>
 <span>      digits <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span></span></code></pre>
 </div>
 <table>

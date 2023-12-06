@@ -62,8 +62,8 @@ ggplot(df, aes(x = Category, y = Percentage, fill = fct_rev(`Zone Type`))) +
   geom_bar(stat = 'identity', position = 'fill') +
   labs(
     title = 
-      'Population Distribution by Race/Ethnicity in "Best" and "Hazardous" Zones',
-       x = 'Race/Ethnicity Categories', y = 'Proportion') +
+      'Population Distribution by Race in "Best" and "Hazardous" Zones',
+       x = 'Race Categories', y = 'Proportion') +
   guides(fill = guide_legend(title = 'Zone Type'))
 ```
 This plot sets the stage for a more in-depth examination of the relationships between HOLC grades and current population distributions, providing a visual foundation for subsequent analyses and interpretations in the following sections.
@@ -103,7 +103,8 @@ model <- lm(sum_lq ~ holc_grade, data = lq_data)
 summary_table <- tidy(model)
 
 kable(summary_table, 
-      col.names = c("Variable", "Coefficient", "Std. Error", "t-value", "p-value"),
+      col.names = c("Variable", "Coefficient", "Std. Error", 
+                    "t-value", "p-value"),
       digits = 3)
 ```
 The estimated coefficient for the main coefficient of interest holc_gradeD is 0.165. This suggests that, on average, the sum of Location Quotients (sum_lq) increases by approximately 0.165 units when the holc_grade is D compared to the reference category of hol_gradeA. The positive coefficient of 0.165 suggests a positive relationship between having a HOLC grade of D and an increase in the sum of Location Quotients. This means that areas classified as HOLC grade D tend to have, on average, a higher sum of Location Quotients compared to areas with HOLC grade A and the magnitude of 0.165 indicates the average change in the sum of Location Quotients associated with a one-unit change in the HOLC grade from A to D.
