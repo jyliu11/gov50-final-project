@@ -7,9 +7,7 @@ output:
     self_contained: false
 ---
 
-## Final Project
-
-Introduction:
+## Introduction
 
 The goal of this research project is to explore the enduring impact of historical redlining maps created by the Home Owners Loan Corporation (HOLC) between 1935 and 1940 on the contemporary racial and ethnic population distribution within metropolitan areas. The central question guiding this investigation is: How do neighborhoods classified as "redlined" by HOLC in the past, often linked to communities of color, correlate with present-day patterns of racial and ethnic segregation? The hypothesis predicts that discriminatory lending practices and disinvestment in historically marginalized neighborhoods have led to persistent disparities in population composition, shaping the demographic landscape of these areas.
 
@@ -17,7 +15,7 @@ This hypothesis is grounded in the understanding that the repercussions of redli
 
 This research is interesting because it has the potential to provide an explanation for the social and economic disparities we see today. By examining the intersection of historical redlining practices and present-day demographic distributions, this research seeks to contribute valuable insights into the persistent consequences of discriminatory policies. The following sections delve into the empirical analysis, providing a comprehensive understanding of the relationship between HOLC redlining maps and contemporary racial and ethnic population dynamics within metropolitan areas.
 
-Data Section:
+## Data Section
 
 The dataset utilized in this study is a combination of data from historical records of redlining maps developed by the Home Owners Loan Corporation (HOLC) during the period spanning 1935-1940 and contemporary population and race/ethnicity data from the 2020 U.S. decennial census. The dataset includes key variables such as HOLC grade, demographic composition (specifically, the percentage of White, Black, Hispanic/Latino, Asian, and Other populations), and Location Quotients (LQs) across different ethnicities. The HOLC grade serves as the key independent variable, representing the historical redlining status of neighborhoods, while demographic composition and LQs act as dependent variables, shedding light on the enduring consequences of redlining practices on present-day population distributions and segregation.
 
@@ -60,7 +58,7 @@ ggplot(df, aes(x = Category, y = Percentage, fill = fct_rev(`Zone Type`))) +
 ```
 This plot sets the stage for a more in-depth examination of the relationships between HOLC grades and current population distributions, providing a visual foundation for subsequent analyses and interpretations in the following sections.
 
-Results:
+## Results
 
 ```{r, main analysis}
 lq_data <- redlining |>
@@ -100,7 +98,7 @@ The estimated coefficient for the main coefficient of interest holc_gradeD is 0.
 
 The small p-value (9.87e-11) indicates that the coefficient for holc_gradeD is statistically significant. This implies that the observed relationship between holc_gradeD and the sum of Location Quotients (sum_lq) is unlikely to be due to random chance. That being said, while the coefficient is statistically significant, establishing causation requires additional evidence, such as experimental design with randomized controlled trials and/or careful consideration of potential confounding factors. The coefficient may indicate a correlation/association between holc_gradeD and an increase in the sum of Location Quotients, but a causal interpretation should be made cautiously, as confounding factors, including factors such as bias in those who chose to fill out the census survey or other historical events that may have had lasting effects on the economic and demographic characteristics of areas with HOLC grade D, may be in play. Thus, identifying a causal effect would require further investigation.
 
-Conclusion:
+## Conclusion
 
 The observed patterns in the graphs align with the historical context of redlining, where Grade A areas were often associated with more affluent and predominantly white neighborhoods, while communities of color, particularly Black communities, were systematically excluded and faced disinvestment, ending up in areas with Grade D. The enduring impact of historical redlining is reflected in the contemporary spatial distribution of racial and ethnic populations within metropolitan areas. These findings support the research question by providing substantial support for the hypothesis that neighborhoods classified as "redlined" by HOLC in the 1930s exhibit enduring patterns of racial segregation and disparities in population composition within contemporary metropolitan areas. The disparities in LQs highlight the enduring consequences of historical redlining practices, contributing to the understanding of how discriminatory policies have shaped the demographic landscape in metropolitan areas over time. However, missing data and potential confounding factors, such as unobserved variables related to economic development or local policies, pose challenges to drawing definitive causal conclusions. Furthermore, the cross-sectional nature of the study also limits the ability to assess causal relationships. To enhance the analysis, future research could employ longitudinal data, consider additional confounding variables, and explore local and historical policy dynamics that may contribute to the observed patterns. Additionally, conducting sensitivity analyses and employing more advanced statistical techniques would further strengthen the robustness of the findings.
 
